@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 ResumeFit
 
-## Getting Started
+**ResumeFit** is an AI-powered resume rewriting tool that tailors your resume based on a specific job description using Google Gemini Pro. It helps job seekers optimize their resumes for applicant tracking systems (ATS) and improve their chances of landing interviews.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ✅ Upload resume (PDF/DOCX)
+- ✅ Paste job description
+- ✅ Rewrites resume using Gemini AI
+- ✅ Generates ATS-friendly resume PDF
+- ✅ Clean UI built with Next.js
+- ✅ Automated workflow powered by n8n
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+| Layer | Tech |
+|-------|------|
+| 💻 Frontend | Next.js 14 / 15 (App Router), Tailwind CSS, Shadcn UI |
+| ⚙️ Backend | n8n (Self-hosted or Cloud) |
+| 🧠 AI Model | Google Gemini Pro (via AI Studio API) |
+| 📄 File Parsing | `pdf-parse` (Node.js) |
+| 📤 PDF Generation | `html-pdf-node` or Puppeteer |
+| ☁️ Deployment | Vercel (Frontend), n8n Cloud |
 
-To learn more about Next.js, take a look at the following resources:
+---
+## 📸 Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔹 Upload Interface
+![Upload Resume](./screenshots/resume.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔹 Tailored Resume Output (PDF Preview)
+![Preview](./screenshots/result.png)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧩 How It Works
+
+1. User uploads their resume and a job description
+2. ResumeFit extracts the resume text
+3. Sends resume + job description to Gemini via n8n
+4. Gemini rewrites the resume to match the job
+5. The result is converted to a clean PDF
+6. User can download the final tailored resume
+
+---
+
+## 🔧 Setup Instructions
+
+### 1. Clone the Repo
+
+git clone https://github.com/aliatherayyubi/ResumeFit.git
+cd ResumeFit
+
+### 2. Install Dependencies
+
+npm install
