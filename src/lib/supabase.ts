@@ -1,0 +1,15 @@
+// lib/supabase.ts
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+
+export async function isLogin() {
+    let {data}= await supabase.auth.getUser();
+    console.log(data.user)
+    return data.user?true:false;
+
+}
