@@ -21,9 +21,21 @@ import {
   RefreshCw,
 } from "lucide-react"
 
+interface UploadedFile {
+  file: File
+  status: "success" | "error"
+  id: string
+}
+
+interface ResultStepData {
+  uploadedFile?: UploadedFile | null
+  jobDescription?: string
+  [key: string]: unknown
+}
+
 interface ResultStepProps {
-  data: any
-  onUpdate: (data: any) => void
+  data: ResultStepData
+  onUpdate: (data: ResultStepData) => void
   onComplete: () => void
 }
 
@@ -384,12 +396,11 @@ export default function ResultStep({ data, onUpdate, onComplete }: ResultStepPro
           <div className="text-center">
             <h3 className="font-semibold text-gray-900 mb-2">🎉 Analysis Complete!</h3>
             <p className="text-gray-600 mb-4">
-              Your resume has been successfully analyzed and optimized for the target position at{" "}
-              {data.company || "your target company"}.
+              Your resume has been successfully analyzed and optimized for the target position.
             </p>
             <div className="flex justify-center space-x-6 text-sm">
               <div className="text-center">
-                <div className="font-semibold text-purple-600">{data.uploadedFiles?.length || 0}</div>
+                <div className="font-semibold text-purple-600">{data.uploadedFile ? 1 : 0}</div>
                 <div className="text-gray-600">Files Processed</div>
               </div>
               <div className="text-center">
