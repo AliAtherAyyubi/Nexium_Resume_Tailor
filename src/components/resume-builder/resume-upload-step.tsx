@@ -9,9 +9,14 @@ import {  FileText, X, CheckCircle, File, Download, } from "lucide-react"
 import FileUpload from "../kokonutui/file-upload"
 
 interface ResumeUploadStepProps {
-  data: any
-  onUpdate: (data: any) => void
+  data: ResumeUploadData
+  onUpdate: (data: ResumeUploadData) => void
   onComplete: () => void
+}
+
+interface ResumeUploadData {
+  uploadedFile?: UploadedFile | null
+  [key: string]: unknown
 }
 
 interface UploadedFile {

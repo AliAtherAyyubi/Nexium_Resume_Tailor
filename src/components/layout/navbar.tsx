@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, FileText } from "lucide-react"
 import { isLogin } from "@/lib/supabase"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Resume Builder", href: "/resume-builder" },
@@ -14,7 +14,7 @@ const navItems = [
 ]
 
 export default function  Navbar() {
-  let router= useRouter();
+  // let router= useRouter();
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isUser, setisUser] = useState(false)
@@ -45,7 +45,7 @@ export default function  Navbar() {
     })
   }, [])
   async function checkLogin(){
-    let user= await isLogin();
+    const user= await isLogin();
     return user
   }
   return (

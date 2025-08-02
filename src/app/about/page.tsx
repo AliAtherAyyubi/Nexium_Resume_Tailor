@@ -84,7 +84,7 @@ export default function AboutPage() {
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              We're on a mission to help professionals worldwide create stunning resumes that open doors to their dream
+              We&apos;re on a mission to help professionals worldwide create stunning resumes that open doors to their dream
               careers. Our platform combines cutting-edge technology with expert insights to deliver results that
               matter.
             </motion.p>

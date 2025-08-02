@@ -8,14 +8,26 @@ import { motion } from "motion/react"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
+interface UploadedFile {
+  file: File
+  status: "success" | "error"
+  id: string
+}
+
+interface JobDetailsData {
+  jobDescription?: string
+  uploadedFile?: UploadedFile | null
+  [key: string]: unknown
+}
+
 interface JobDetailsStepProps {
-  data: any
-  onUpdate: (data: any) => void
+  data: JobDetailsData
+  onUpdate: (data: JobDetailsData) => void
   onComplete: () => void
 }
 
 export default function JobDetailsStep({ data, onUpdate, onComplete }: JobDetailsStepProps) {
-  const [jobData, setJobData] = useState({
+  const [jobData, setJobData] = useState<JobDetailsData>({
     // jobTitle: data.jobTitle || "",
     jobDescription: data.jobDescription || "",
     ...data,
@@ -34,7 +46,7 @@ export default function JobDetailsStep({ data, onUpdate, onComplete }: JobDetail
   // }, [jobData.jobTitle, jobData.company, onComplete])
 
   const handleChange = (field: string, value: string) => {
-    setJobData((prev: typeof jobData) => ({ ...prev, [field]: value }))
+    setJobData((prev: JobDetailsData) => ({ ...prev, [field]: value }))
   }
 
 

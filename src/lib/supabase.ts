@@ -8,7 +8,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 
 export async function isLogin() {
-    let {data}= await supabase.auth.getUser();
+    const {data}= await supabase.auth.getUser();
     console.log(data.user)
     return data.user?true:false;
 

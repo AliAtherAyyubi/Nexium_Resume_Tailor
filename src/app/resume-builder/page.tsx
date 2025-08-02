@@ -19,7 +19,7 @@ const steps = [
 
 export default function ResumeBuilderPage() {
   const [currentStep, setCurrentStep] = useState(1)
-  const [formData, setFormData] = useState<any>({})
+  const [formData, setFormData] = useState({})
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
 
   const CurrentStepComponent = steps.find((step) => step.id === currentStep)?.component
@@ -49,7 +49,7 @@ export default function ResumeBuilderPage() {
     }
   }
 
-  const updateFormData = (stepData: any) => {
+  const updateFormData = () => {
     // setFormData((prev: any) => ({ ...prev, ...stepData }))
   }
 
@@ -101,14 +101,15 @@ export default function ResumeBuilderPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                {steps.find((step) => step.id === currentStep)?.icon && (
-                  <div className="p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg mr-3">
-                    {(() => {
-                      const Icon = steps.find((step) => step.id === currentStep)?.icon!
-                      return <Icon className="h-5 w-5 text-white" />
-                    })()}
-                  </div>
-                )}
+                {(() => {
+                  const currentStepData = steps.find((step) => step.id === currentStep)
+                  const Icon = currentStepData?.icon
+                  return Icon ? (
+                    <div className="p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg mr-3">
+                      <Icon className="h-5 w-5 text-white" />
+                    </div>
+                  ) : null
+                })()}
                 {steps.find((step) => step.id === currentStep)?.title}
               </CardTitle>
             </CardHeader>
